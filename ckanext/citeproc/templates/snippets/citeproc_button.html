@@ -4,6 +4,7 @@ Adds a button to open the citeproc modal for citations.
 res_dict - Resource data dict.
 pkg_dict - Dataset data dict.
 list     - bool, should wrap in li node or not
+spacer   - bool, should have some br spacers before button group
 
 Example:
 
@@ -17,6 +18,7 @@ Example:
 
 {% block citeproc_button %}
   {% if list %}<li>{% endif %}
+  {% if spacer %}<br/><br/>{% endif %}
   <div class="btn-group">
     <div data-module="citeproc-modal" data-module-ajax_uri="{{ ajax_uri }}">
       <div class="citeproc-wrapper">
