@@ -1,10 +1,11 @@
 {#
 Adds a button to open the citeproc modal for citations.
 
-res_dict - Resource data dict.
-pkg_dict - Dataset data dict.
-list     - bool, should wrap in li node or not
-spacer   - bool, should have some br spacers before button group
+res_dict    - Resource data dict.
+pkg_dict    - Dataset data dict.
+list        - bool, should wrap in li node or not
+list_class  - str, className for the li element
+spacer      - bool, should have some br spacers before button group
 
 Example:
 
@@ -17,7 +18,7 @@ Example:
 {% set button_text = _('Cite this') ~ ' ' ~ (_('dataset') if pkg_dict else _('resource')) %}
 
 {% block citeproc_button %}
-  {% if list %}<li>{% endif %}
+  {% if list %}<li {% if list_class %}class="{{- list_class -}}"{% endif %}>{% endif %}
   {% if spacer %}<br/><br/>{% endif %}
   <div class="btn-group">
     <div data-module="citeproc-modal" data-module-ajax_uri="{{ ajax_uri }}">
